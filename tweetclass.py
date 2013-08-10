@@ -5,11 +5,17 @@ import math
 """
 
 def sample_train(cl):
-    cl.train('Nobody owns the water.', 'positive')
-    cl.train('The quick rabbit jumps fences', 'positive')
-    cl.train('Buy pharmaceuticals now', 'negative')
-    cl.train('Make quick money at the online casino', 'negative')
-    cl.train('The quick brown fox jumps', 'positive')
+    #FBGGD
+    cl.train('Coolest event for ladies in #tech! Highlights of the Bay Area Girl Geek Dinner At #Facebook http://stanfy.com/blog/bay-area-girl-geek-dinner-impressions/ … via #fbggd', 'positive')
+    cl.train('Impressions From Bay Area Girl Geek at Facebook HQ - all here http://bit.ly/13jkT8I #fbggd #startup', 'neutral')
+    cl.train('@jamescoletti your\'d love the #fbggd event! Hackers on hackers on hackers! pic.twitter.com/EuRNUxu1zZ', 'positive')
+    #McDstories
+    cl.train('My wife can always tell when I\'ve been to McDonalds by the smell of farts #McDstories', 'negative')
+    cl.train('#McDstories My dad ate there, pulled off the road, puked violently in empty cooler...', 'negative')
+    #@jack
+    cl.train('Hello again, California', 'neutral')
+    cl.train('Hot in AZ.', 'neutral')
+    cl.train('Hello Austin', 'neutral')
 
 def get_words(tweet):
     splitter=re.compile('\\W*') # Lookup
@@ -169,6 +175,7 @@ class Bayes(Classifier):
     classified into a particular ctageory, its probability must be a specified amount larger
     then the probability of another category. See the __init__ added to Bayes.
     """
+
 
 
 

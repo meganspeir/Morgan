@@ -1,0 +1,71 @@
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+h4 {
+  margin-top: 25px;
+}
+
+.row {
+  margin-bottom: 20px;
+}
+
+.row .row {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+[class*="col-lg-"] {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+body {
+padding-top: 90px;
+}
+
+.jumbotron {
+margin-top: 20px;
+}
+
+.doughnut {
+/*  background-color: rgba(185,74,72,.15);*/
+  /*border: 1px solid rgba(185,74,72,.2);*/
+  height: 313px;
+}
+
+.sentiment-title {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/*.person {
+  background-color: rgba(185,74,72,.15);
+  border: 1px solid rgba(185,74,72,.2);
+  height: 160px;
+  line-height: 140px;
+}*/
+
+.badge {
+  margin: 8px;
+}
+
+.arc {
+/*  stroke: #fff;*/
+}
+
+.text-inner {
+  font-size: 48px;
+  text-anchor: middle;
+}
+
+.navbar {
+  background-color: #dedede;
+  background-image: linear-gradient(to bottom, #dedede 0%,#f7f7f7 100%);
+}
+
+.badge {
+  background-color: #D7D7D7;
+/*  background-image: linear-gradient(to left, #ff8c00 0%,#fcc376 100%);
+*/}

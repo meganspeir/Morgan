@@ -1,0 +1,92 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+
+    <div class="container">
+
+    <script>
+        var radius = 140,
+            padding = 0;
+
+        var color = d3.scale.ordinal().range(["#FB2B69", "#FF5B37", "#FF8C00"]);
+
+        var arc = d3.svg.arc()
+            .outerRadius(radius)
+            .innerRadius(radius / 1.61803398875);
+
+        var doughnut = d3.layout.pie()
+            .sort(null)
+            .value(function(d) { return d.sentiment; });
+
+        d3.csv("{{ url_for('static', filename='data.csv') }}", function(error, data) {
+          color.domain(d3.keys(data[0]).filter(function(key) { return key !== "Index"; }));
+
+          data.forEach(function(d) {
+            d.analysis = color.domain().map(function(name) {
+              return {name: name, sentiment: +d[name]};
+            });
+          });
+
+          var svg = d3.select("#chart").selectAll(".doughnut")
+              .data(data)
+            .enter().append("svg")
+              .attr("class", "col-sm-4 col-lg-4 doughnut")
+              // .attr("width", radius * 2)
+              // .attr("height", radius * 2)
+            .append("g")
+              .attr("transform", "translate(" + radius + "," + radius + ")");
+
+          svg.selectAll("arc")
+              .data(function(d) { return doughnut(d.analysis); })
+            .enter().append("path")
+              .attr("class", "arc")
+              .attr("d", arc)
+              .style("fill", function(d) { return color(d.data.name); });
+
+          svg.append("text")
+              .attr("class", "text-inner")
+              .attr("dy", ".35em")
+              .text(function(d) { return d.Index; });
+
+        });
+      </script>
+
+      <h3>Indeximent</h3>
+      <div class="row" id="chart">
+      </div>
+      <h3>Sentiments</h3>
+      {% for sentiment in sentiments|d([]) %}
+        <a class="badge">{{ sentiment }}</a>
+      {% endfor %}
+
+      <h3>People</h3>
+      <div class="row">
+        <div class="col-6 col-sm-3 col-lg-2 person text-center">
+          <img src="{{ url_for('static', filename='images/person.png') }}" class="img-responsive img-rounded">
+        </div>
+        <div class="col-6 col-sm-3 col-lg-2 person text-center">
+          <img src="{{ url_for('static', filename='images/person.png') }}" class="img-responsive img-rounded">
+        </div>
+        <div class="col-6 col-sm-3 col-lg-2 person text-center">
+          <img src="{{ url_for('static', filename='images/person.png') }}" class="img-responsive img-rounded">
+        </div>
+        <div class="col-6 col-sm-3 col-lg-2 person text-center">
+          <img src="{{ url_for('static', filename='images/person.png') }}" class="img-responsive img-rounded">
+        </div>
+        <div class="col-6 col-sm-3 col-lg-2 person text-center">
+          <img src="{{ url_for('static', filename='images/person.png') }}" class="img-responsive img-rounded">
+        </div>
+        <div class="col-6 col-sm-3 col-lg-2 person text-center">
+          <img src="{{ url_for('static', filename='images/person.png') }}" class="img-responsive img-rounded">
+        </div>
+        <div class="col-6 col-sm-3 col-lg-2 person text-center hidden-lg">
+          <img src="{{ url_for('static', filename='images/person.png') }}" class="img-responsive img-rounded">
+        </div>
+        <div class="col-6 col-sm-3 col-lg-2 person text-center hidden-lg">
+          <img src="{{ url_for('static', filename='images/person.png') }}" class="img-responsive img-rounded">
+        </div>
+      </div>
+
+    </div> <!-- /container -->
+{% endblock %}

@@ -11,7 +11,7 @@ The screenshot below shows the data representation as would be rendered with som
 
 Each chart represents a group of Tweets from a specific Twitter hashtag that have been assigned a score based upon positive or negative sentiment. 100 being most positive and 0 being the worst.
 
-The words [or features] that occur the most are shown in sentiments.
+The words [or features] that occur the most are shown in sentiments. See `tweetclass.py` to see the training!
 
 ```python
     def feature_count(self, f, cat):

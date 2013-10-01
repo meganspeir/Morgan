@@ -7,7 +7,11 @@ Twitter sentiment analysis using a Naïve Bayes classifier.
 
 This project currently implements a small subset of data. However, the algorithm could easily be seeded with your own training data.
 
-The screenshot below shows the data representation as would be rendered with some help using D3 for data visualization.
+The screenshot below shows the data representation as rendered with some help using D3 for data visualization in `home.html`.
+
+```html
+    var doughnut = d3.layout.pie()
+```
 
 Each chart represents a group of Tweets from a specific Twitter hashtag that have been assigned a score based upon positive or negative sentiment. 100 being most positive and 0 being the worst.
 
@@ -20,6 +24,6 @@ The words [or features] that occur the most are shown in sentiments. See `tweetc
         return 0.0
 ```
 
-And an additional feature will include keeping track of the people who are talking about your event the most on Twitter.
+Additional feature includes keeping track of the people who are talking about your event the most on Twitter.
 
 ![alt tag](https://raw.github.com/meganspeir/Morgan/master/screenshot.png)
